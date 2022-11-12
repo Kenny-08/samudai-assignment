@@ -2,6 +2,35 @@
 
 This folder consists of 3 APIs: User's signup and login, dashboard and manage access. I have tested them using postman. Below mentioned are the steps and request body to be defined if anyone wants to clone and run it locally.
 
+## Requirements
+
+In .env file, add the following
+
+```
+DB_HOST=localhost                                               
+DB_USER=postgres
+DB_PASSWORD={db_password}
+DB_NAME=postgres
+DB_PORT=5432
+TOKEN_HOUR_LIFESPAN=24
+API_SECRET={secret_key}
+```
+
+- installing all go dependencies
+```
+go get -u github.com/gin-gonic/gin
+go get -u github.com/jinzhu/gorm
+go get -u github.com/dgrijalva/jwt-go
+go get -u github.com/joho/godotenv
+go get -u golang.org/x/crypto
+```
+
+- running the docker container
+```
+docker-compose up --build
+```
+
+
 ## Login-Signup-API
 
 * **Register**: POST Request - "localhost:8088/register" 
