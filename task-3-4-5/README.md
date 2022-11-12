@@ -6,24 +6,24 @@ This folder consists of 3 APIs: User's signup and login, dashboard and manage ac
 
 * **Register**: POST Request - "localhost:8088/register" 
 ~ JSON Body: 
-`
+```
 {
 &emsp; "name": "kenny",
 &emsp; "username": "ken",
 &emsp; "email": "abc@gmail.com",
 &emsp; "password": "abc@123"
 }
-`
+```
 Role field will be assigned automatically a default value, i.e. "user"
 
 * **Login**: POST Request - "localhost:8088/login"
 ~ JSON Body: 
-`
+```
 {
 &emsp; "email": "abc@gmail.com",
 &emsp; "password": "abc@123"
 }
-`
+```
 
 * **Get Users**: GET Request - "localhost:8088/getusers"
 &emsp; getting a list of all the users in database
@@ -32,14 +32,14 @@ Role field will be assigned automatically a default value, i.e. "user"
 &emsp; delete the user with the given user id
 
 * **Update Users**: PUT Request - "localhost:8088/updateuser/:id"
-`
+```
 {
 &emsp; "name": "kenny",
 &emsp; "username": "ken",
 &emsp; "email": "abc@gmail.com",
 &emsp; "password": "abc@123"
 }
-`
+```
 * **Find User with email**: GET Request - "localhost:8088/find/:email"
 &emsp; finds the user with the provided email id
 
@@ -51,12 +51,12 @@ Any user can create an empty dashboard by providing a single name field. Then th
 * **Create Dashboard**: POST Request - "localhost:8088/:id/createdashboard"
 &emsp; creates a dashboard for the user with provided user_id and a string of widgets seperated by colon, 
 for eg. we can pass "visualizations:settings" string in widgets field.
-`
+```
 {
 &emsp; "dashboard_name": "My Dashboard",
 &emsp; "widgets": "",
 }
-`
+```
 
 * **Get Dashboard**: GET Request - "localhost:8088/:id/getdashboard"
 &emsp; gets a list of dashboard created by a particular user by providing their user_id
@@ -72,13 +72,13 @@ Admin can give or revoke access from users. By default, **user** is the default 
 - There are 3 roles at present: user, moderator, admin
 
 * **Change Role**: POST Request - "localhost:8088/changerole"
-`
+```
 {
 &emsp; "admin_id": "1",
 &emsp; "user_id": "3",
 &emsp; "role": "moderator"
 }
-`
+```
 
 * **Get Permissions**: GET Request - "localhost:8088/getPermissions/:id"
 Provides a list of permissions provided to particular user by providing their user_id.
