@@ -5,7 +5,7 @@ This folder consists of 3 APIs: User's signup and login, dashboard and manage ac
 ## Login-Signup-API
 
 * **Register**: POST Request - "localhost:8088/register" 
-~ JSON Body: 
+
 ```
 {
     "name": "kenny",
@@ -17,7 +17,7 @@ This folder consists of 3 APIs: User's signup and login, dashboard and manage ac
 Role field will be assigned automatically a default value, i.e. "user"
 
 * **Login**: POST Request - "localhost:8088/login"
-~ JSON Body: 
+
 ```
 {
     "email": "abc@gmail.com",
@@ -52,6 +52,7 @@ Role field will be assigned automatically a default value, i.e. "user"
 Any user can create an empty dashboard by providing a single name field. Then they can add the widgets from a list of widgets as per their roles and permissions.
 
 * **Create Dashboard**: POST Request - "localhost:8088/:id/createdashboard"
+
 &emsp; creates a dashboard for the user with provided user_id and a string of widgets seperated by colon, 
 for eg. we can pass "visualizations:settings" string in widgets field.
 ```
