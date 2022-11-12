@@ -29,6 +29,13 @@ type Dashboard struct {
 	Widgets       string `json:"widgets"`
 }
 
+type ManageAccess struct {
+	gorm.Model
+	AdminID int    `json:"admin_id" gorm: "foreignKey:UserId"` // foreign key
+	UserID  int    `json:"user_id" gorm: "foreignKey:UserId"`  // foreign key
+	Role    string `json:"role" gorm:"size:255;not null"`
+}
+
 var DB *gorm.DB
 
 func Connect(){
@@ -89,7 +96,7 @@ func Connect(){
 		"write",
 	})
 
-	err = auth.AssignPermissions("moderator", []string{
+	err = auth.AssignPermissions("admin", []string{
 		"read",
 		"login",
 		"signup",
@@ -101,8 +108,10 @@ func Connect(){
 		"settings",
 	})
 
+
 	db.AutoMigrate(User{})
 	db.AutoMigrate(Dashboard{})
+	db.AutoMigrate(ManageAccess{})
 	DB = db
 
 }

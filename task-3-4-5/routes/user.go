@@ -22,6 +22,6 @@ func DashboardRoute(router *gin.Engine) {
 }
 
 func ManageAccess(router *gin.Engine){
-	router.POST("/grant", controllers.GrantRole)
-	router.POST("/revoke", controllers.ChangeRole)
+	router.POST("/changeRole", controllers.ChangeRole)
+	router.GET("/getPermissions/:id", controllers.GetPermissions)
 }
